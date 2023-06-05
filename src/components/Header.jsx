@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   /* Mission!
@@ -9,11 +10,12 @@ const Header = () => {
   return (
     <div className='header-container'>
       <div className='link-container'>
-        로고
+        <Link to="/">DOl</Link>
       </div>
       <div className='link-container'>
-        메인창
-        목록
+        <Link to="/list">목록</Link>
+        {" "}
+        <Link to="/storage">저장소</Link>        
       </div>
       <div className='link-container'>
         로그인

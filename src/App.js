@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Main from './components/Main'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import ProductList from './components/ProductList'
+import ProductDetail from './components/ProductDetail'
+import './App.css';
+import { Form } from 'react-router-dom'
+import Storage from './components/Storage'
+
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
+
+  const [list, setList] = useState([])
 
   /* 미션 수행 순서! 
   1) Route 처리
@@ -24,10 +33,19 @@ function App() {
   return (
     <div className='container'>
     <Header/>
-    <Main/>
+
+    <Routes>
+      <Route path='/' element={<Main/>}></Route>
+      <Route path='/list' element={<ProductList list={list} setList={setList}/>}></Route>
+      <Route path='/detail/:num' element={<ProductDetail list={list}/>}></Route>
+      <Route path='/storage' element={<Storage/>}></Route>
+    </Routes>
+    
+    
     <Footer/>
     </div>
   )
 }
+
 
 export default App
